@@ -28,7 +28,8 @@ export default function HomePage() {
       if (!session) {
         setError('Please login to view your bill');
         setLoading(false);
-        return;
+        return router.push('/login');
+        
       }
 
       const res = await fetch(`/api/client/getBill?consumer_id=${consumerId.trim()}`, {
